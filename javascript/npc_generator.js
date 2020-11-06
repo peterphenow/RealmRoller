@@ -3,7 +3,7 @@
 also [shop,bakery,brewery]
 parameters [limit, start] */
 
-let button = $("#getname");
+let button = $("#npcGenButton");
 let raceInput = $("#raceInput");
 let listOfListofNames = JSON.parse(localStorage.getItem("listOfListOfNames"));
 if(listOfListofNames===null){
