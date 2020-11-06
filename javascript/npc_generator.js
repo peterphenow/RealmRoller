@@ -70,7 +70,7 @@ function createNPC(fullName, race) {
     let npcCharacter = {
         "firstName": fullName.split(" ")[0],
         "lastName": fullName.split(" ")[fullName.split(" ").length - 1],
-        "race": race,
+        "race": race==="pirate" ? "human" : race,
         "wealth": getWealth(),
     };
     if (npcCharacter.race === "elf") {
