@@ -46,9 +46,9 @@ button.on("click", function () {
     }
 })
 
-function getName(race, gender) {
+function getName(race) {
     let api_key = "2ff8BbYOdnIM3EMt6RgYkAeF"
-    let queryURL = "https://api.fungenerators.com/name/generate?api_key=" + api_key + "&variant=" + gender + "&limit=100&category=" + race;
+    let queryURL = "https://api.fungenerators.com/name/generate?api_key=" + api_key +"&limit=100&category=" + race;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -60,7 +60,7 @@ function getName(race, gender) {
             console.log("API call made");
             listOfListofNames.push({ "category": race, "nextNameIndex": 0, "list": response.contents.names });
             let index = listOfListofNames.length - 1;
-            createNPC(listOfListofNames[index].list[listOfListofNames[index].nextNameIndex], userInput.race);
+            createNPC(listOfListofNames[index].list[listOfListofNames[index].nextNameIndex],race);
             listOfListofNames[index].nextNameIndex++;
             localStorage.setItem("listOfListOfNames", JSON.stringify(listOfListofNames));
         })
@@ -71,12 +71,16 @@ function createNPC(fullName, race) {
         "firstName": fullName.split(" ")[0],
         "lastName": fullName.split(" ")[fullName.split(" ").length - 1],
         "race": race,
-        "wealth":getWealth(),
-        "description": "Test"
+        "wealth": getWealth(),
     };
     if (npcCharacter.race === "elf") {
         npcCharacter = createElf(npcCharacter);
+    } else if (npcCharacter.race === "dwarf"){
+        npcCharacter = createDwarf(npcCharacter);
+    } else {
+        npcCharacter = createHuman(npcCharacter);
     };
+    npcCharacter = addDescription(npcCharacter);
     $("#npcContainer").removeClass("hidden");
     $("#npcName").text(npcCharacter.firstName + " " + npcCharacter.lastName);
     $("#npcRace").text(npcCharacter.race);
@@ -106,11 +110,67 @@ function createNPC(fullName, race) {
             npcCharacter.age = { "year": age, "category": "elder" };
         }
         npcCharacter.height = height;
-        let heightScore = Math.floor(((height-minHeight)/(maxHeight-minHeight))*100);
-        npcCharacter.heightScore =heightScore
+        let heightScore = Math.floor(((height - minHeight) / (maxHeight - minHeight)) * 100);
+        npcCharacter.heightScore = heightScore
         npcCharacter.weight = weight;
-        let weightScore = Math.floor(((weight-minWeight)/(maxWeight-minWeight))*100);
-        npcCharacter.weightScore =weightScore
+        let weightScore = Math.floor(((weight - minWeight) / (maxWeight - minWeight)) * 100);
+        npcCharacter.weightScore = weightScore
+        return npcCharacter
+    }
+
+    function createDwarf(npcCharacter) {
+        let dwarfMaxAge = 350;
+        let age = Math.floor(Math.random() * dwarfMaxAge);
+        let minHeight = 47;
+        let maxHeight = 53;
+        let height = Math.floor(Math.random() * (maxHeight - minHeight) + minHeight);
+        let minWeight = 134;
+        let maxWeight = 176;
+        let weight = Math.floor(Math.random() * (maxWeight - minWeight) + minWeight);
+
+        if (age < 18) {
+            npcCharacter.age = { "year": age, "category": "child" };
+        } else if (age < 50) {
+            npcCharacter.age = { "year": age, "category": "young adult" };
+        } else if (age < 200) {
+            npcCharacter.age = { "year": age, "category": "adult" };
+        } else {
+            npcCharacter.age = { "year": age, "category": "elder" };
+        }
+        npcCharacter.height = height;
+        let heightScore = Math.floor(((height - minHeight) / (maxHeight - minHeight)) * 100);
+        npcCharacter.heightScore = heightScore
+        npcCharacter.weight = weight;
+        let weightScore = Math.floor(((weight - minWeight) / (maxWeight - minWeight)) * 100);
+        npcCharacter.weightScore = weightScore
+        return npcCharacter
+    }
+
+    function createHuman(npcCharacter) {
+        let humanMaxAge = 350;
+        let age = Math.floor(Math.random() * humanMaxAge);
+        let minHeight = 60;
+        let maxHeight = 80;
+        let height = Math.floor(Math.random() * (maxHeight - minHeight) + minHeight);
+        let minWeight = 100;
+        let maxWeight = 300;
+        let weight = Math.floor(Math.random() * (maxWeight - minWeight) + minWeight);
+
+        if (age < 14) {
+            npcCharacter.age = { "year": age, "category": "child" };
+        } else if (age < 22) {
+            npcCharacter.age = { "year": age, "category": "young adult" };
+        } else if (age < 50) {
+            npcCharacter.age = { "year": age, "category": "adult" };
+        } else {
+            npcCharacter.age = { "year": age, "category": "elder" };
+        }
+        npcCharacter.height = height;
+        let heightScore = Math.floor(((height - minHeight) / (maxHeight - minHeight)) * 100);
+        npcCharacter.heightScore = heightScore
+        npcCharacter.weight = weight;
+        let weightScore = Math.floor(((weight - minWeight) / (maxWeight - minWeight)) * 100);
+        npcCharacter.weightScore = weightScore
         return npcCharacter
     }
 }
@@ -133,7 +193,85 @@ function getWealth() {
     }
 }
 
-function getDescription(npcCharacter){
+function addDescription(npcCharacter) {
     let description = ""
-    let heightDescriptor = [""]
+    let heightDescriptor = {
+        "short": ["short", "diminutive", "tiny"],
+        "tall": ["tall", "huge", "towering"]
+    }
+    let weightDescriptor = {
+        "thin": ["very thin", "thin and wirey","light but muscular","rather light", "noticeably slender","skinny","bony","noticeably weak and skinny"],
+        "average":["oddly proportioned","healthy looking","sickly looking","athletic looking","well-toned","easily forgetable","hard to miss"],
+        "heavy": ["very heavy set", "big-boned", "rather portly", "exceedingly rotund","heavy set but muscular"]
+    }
+    let clothingDescriptor = {
+        "destitute":["tatted rags covered in what you hope is mud","a dingy shirt that has been patched in several places","a torn pair of pants and no shirt"],
+        "poor":["clothes that don't quite fit","clothes made of a wrough fabric that likely hasn't been washed in weeks","a simple outfit"],
+        "modest":["muted colors","a simple embroidered shirt that has seen some wear","a fine pair of boots and a simple outfit"],
+        "wellOff":["bright colors with a simple sache across their front","a suit and dark grey bowler hat","dark colors with red embroidery on the shoulders"],
+        "wealthy":["fine silky clothing with a few shiny bobbles afixed in places","a noticably bright white shirt with a touch of green trim"],
+        "ultraRich":["the finest fabrics, adjorned in jewels","a austentacious showing of wealth","like a peacock"]
+    }
+    let feature = ["a sharp chin", "a scar across one eye", "a button nose", "piercing blue eyes", "dark brown eyes", "flashing emerald eyes", "scars on both cheeks", "tattoos covering their arms","a pencil this mustache","a huge bushy beard","a think braid drapped over their shoulder","a massive mess of hair on top of their head"];
+
+    let addHeightDescriptor = function () {
+        if (npcCharacter.heightScore < 25) {
+            let heightText = heightDescriptor.short[Math.floor(Math.random() * heightDescriptor.short.length)] + " even for a " + npcCharacter.race + ".";
+            return heightText;
+        } else if (npcCharacter.heightScore < 75) {
+            let selectedFeature = feature[Math.floor(Math.random() * feature.length)];
+            let heightText = "accentuated by "+selectedFeature+".";
+            feature = feature.filter(x => x != selectedFeature);
+            return heightText;
+        } else {
+            let heightText = heightDescriptor.tall[Math.floor(Math.random() * heightDescriptor.tall.length)] + " even for a " + npcCharacter.race + ".";
+            return heightText;
+        }
+    }
+
+    let addClothingDescriptor = function () {
+        switch (npcCharacter.wealth){
+            case "destitute":
+                return clothingDescriptor.destitute[Math.floor(Math.random()*clothingDescriptor.destitute.length)];
+            case "poor":
+                return clothingDescriptor.poor[Math.floor(Math.random()*clothingDescriptor.poor.length)];
+            case "modest":
+                return clothingDescriptor.modest[Math.floor(Math.random()*clothingDescriptor.modest.length)];
+            case "well-off":
+                return clothingDescriptor.wellOff[Math.floor(Math.random()*clothingDescriptor.wellOff.length)];
+            case "wealthy":
+                return clothingDescriptor.wealthy[Math.floor(Math.random()*clothingDescriptor.wealthy.length)];
+            case "ultra-rich":
+                return clothingDescriptor.ultraRich[Math.floor(Math.random()*clothingDescriptor.ultraRich.length)];
+            default:
+                return "god knows what...";
+        }
+    }
+
+    let addWeightDescriptor = function () {
+        if (npcCharacter.weightScore < 25) {
+            let weightText = weightDescriptor.thin[Math.floor(Math.random() * weightDescriptor.thin.length)];
+            return weightText;
+        } else if (npcCharacter.weightScore < 75) {
+            let selectedFeature = feature[Math.floor(Math.random() * feature.length)];
+            feature = feature.filter(x => x != selectedFeature);
+            let weightText = "accentuated by "+selectedFeature+".";
+            return weightText;
+        } else {
+            let weightText = weightDescriptor.heavy[Math.floor(Math.random() * weightDescriptor.heavy.length)];
+            return weightText;
+        }
+    }
+
+    let addFeature = function () {
+        let selectedFeature = feature[Math.floor(Math.random() * feature.length)];
+        feature = feature.filter(x => x != selectedFeature);
+        return selectedFeature;
+    }
+
+    description += npcCharacter.firstName + " is " + addHeightDescriptor();
+    description += " Dressed in "+addClothingDescriptor()+".";
+    description += " They are "+addWeightDescriptor()+" with "+addFeature()+".";
+    npcCharacter.description = description;
+    return npcCharacter;
 }
