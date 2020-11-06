@@ -33,3 +33,13 @@ notes.on("keyup", function () {
   let savedNotes = $("#notes").val();
   localStorage.setItem("notes", savedNotes);
 });
+
+//checks if any previously stored notes are in local storage
+function getStoredNotes() {
+  let storageNotes = localStorage.getItem("notes");
+  notes = $("#notes");
+  notes.val(storageNotes);
+}
+
+//run function to check if any previous user data is stored in local storage in order to populate times
+getStoredNotes();
