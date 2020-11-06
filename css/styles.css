@@ -1,10 +1,7 @@
 html {
   position: relative;
   min-height: 100%;
-}
-
-.container {
-  margin-top: 50px;
+  color: #3333;
 }
 
 body {
@@ -12,17 +9,22 @@ body {
   max-width: 100%;
   margin: 0 0 67px 0;
   padding: 0;
-  background: url("https://i.imgur.com/7ZERR6s.jpg") no-repeat center center
-    fixed;
-  background-image: url("https://i.imgur.com/7ZERR6s.jpg");
-  background-size: cover;
   font-family: "Raleway", sans-serif;
 }
 
-.col {
-  background-color: white;
+.bg-image {
+  background-image: url("https://i.imgur.com/7ZERR6s.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+  margin-top: 50px;
 }
 
 h4 {
+  color: #3333;
   text-align: center;
 }
