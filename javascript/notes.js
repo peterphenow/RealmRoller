@@ -5,10 +5,6 @@ function renderNotesSection() {
   let labelEl = $("<label>");
   labelEl.attr("for", "notes");
   labelEl.text("Notes:");
-  // //create save button element SHOULDN'T NEED SAVE BUTTON ANYMORE
-  // let saveBtn = $("<button>");
-  // saveBtn.attr("id", "save-button");
-  // saveBtn.text("Save");
   //create textarea and all attr
   let textareaEl = $("<textarea>");
   textareaEl.attr("id", "notes");
@@ -20,7 +16,6 @@ function renderNotesSection() {
   //append elements to div
   textareaDiv.append(labelEl);
   textareaDiv.append(textareaEl);
-  // textareaDiv.append(saveBtn);
 }
 
 //runs function to create notes field
