@@ -25,20 +25,14 @@
                     <h4>Name Generator</h4>
                     <hr />
                     <div class="select is-rounded input-field">
-                        <select name="raceInput">
-                          <option>Rounded dropdown</option>
-                          <option>With options</option>
+                        <select name="raceInput" id="raceInput">
+                          <option value="random">Random</option>
+                          <option value="elf">Elf</option>
+                          <option value="dwarf">Dwarf</option>
+                          <option value="pirate">Human</option>
+
                         </select>
                       </div>
-                    <div class="input-field select">
-                        <p class="no_padding no_margin">Choose a race:</p>
-                        <select name="raceInput" id="raceInput">
-                        <option value="random">Random</option>
-                        <option value="elf">Elf</option>
-                        <option value="dwarf">Dwarf</option>
-                        <option value="pirate">Human</option>
-                        </select>
-                    </div>
                     <br />
                     <div>
                     <button class="button center" id="npcGenButton">npcButton</button>
@@ -53,21 +47,37 @@
                         <div id="npcDescription"></div>
                     </div>
                     </div>
+                    <div class="is-divider-vertical" data-content=""></div>
                     <div class="column is-half">
                       <h4>Map</h4>
+                      <hr />
                       <div id="large-image"></div>
                       <input type="url" name="link" id="link"  placeholder="Insert image URL here" /><br>
-                        <a class="btn" value="Show Image" id="maps"> Add Image </a>
-                        <a class="btn-rm" value="remove image" id="maps-rm"> Remove Image</a>
+                        <a class="button" value="Show Image" id="maps"> Add Image </a>
+                        <a class="button-rm" value="remove image" id="maps-rm"> Remove Image</a>
                       </form>
                   </div>
                     <div class="column is-one-fifth">
                     <h4>Notes</h4>
-                    <!-- Notes field -->
+                    <hr />
                     <div id="textarea"></div>
                     <br />
                     <h4>d20 Roller</h4>
-                    <button class="button center" id="d20-button">Roll a d20!</button>
+                    <hr />
+                    <div class="input-field is-rounded select">
+                      <p>Choose your dice:</p>
+                      <select name="diceInput" id="diceInput">
+                      <option value="d4">d4</option>
+                      <option value="d6">d6</option>
+                      <option value="d8">d8</option>
+                      <option value="d10">d10</option>
+                      <option value="d12">d12</option>
+                      <option value="d20">d20</option>
+                      </select>
+                      <br />
+                  </div>
+                  <div>
+                    <button class="button center" id="dice-button">Roll a dice!</button>
                     <h4 id="show-number"></h4>
                   </div>
                 </div>
