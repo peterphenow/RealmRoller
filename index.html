@@ -19,8 +19,8 @@
   <body>
     <div class="bg-image hero is-success is-fullheight">
         <div class="hero-body">
-            <section class="container">
-                <div class="columns is-one-fifth">
+            <section style="display:fixed"class="container">
+                <div class="columns">
                     <div class="column">
                     <h4>Name Generator</h4>
                     <hr />
@@ -35,7 +35,7 @@
                       </div>
                     <br />
                     <div>
-                    <button class="button center" id="npcGenButton">npcButton</button>
+                    <button class="button center" id="npcGenButton">Generate</button>
                     </div>
                     <br />
                     <div id="npcContainer" class="hidden">
@@ -47,25 +47,25 @@
                         <div id="npcDescription"></div>
                     </div>
                     </div>
-                    <div class="is-divider-vertical" data-content=""></div>
+
                     <div class="column is-half">
                       <h4>Map</h4>
                       <hr />
                       <div id="large-image"></div>
                       <input type="url" name="link" id="link"  placeholder="Insert image URL here" /><br>
                         <a class="button" value="Show Image" id="maps"> Add Image </a>
-                        <a class="button-rm" value="remove image" id="maps-rm"> Remove Image</a>
+                        <a class="button button-rm" value="remove image" id="maps-rm"> Remove Image</a>
                       </form>
                   </div>
-                    <div class="column is-one-fifth">
+                    <div class="column">
                     <h4>Notes</h4>
                     <hr />
                     <div id="textarea"></div>
                     <br />
                     <h4>d20 Roller</h4>
                     <hr />
-                    <div class="input-field is-rounded select">
-                      <p>Choose your dice:</p>
+                    <p>Choose your dice:</p>
+                    <div class="select is-rounded input-field">
                       <select name="diceInput" id="diceInput">
                       <option value="d4">d4</option>
                       <option value="d6">d6</option>
@@ -77,8 +77,8 @@
                       <br />
                   </div>
                   <div>
-                    <button class="button center" id="dice-button">Roll a dice!</button>
-                    <h4 id="show-number"></h4>
+                    <button class="button center" id="dice-button">Roll!</button>
+                    <h4>Result: <span id="show-number"></span></h4>
                   </div>
                 </div>
             </section>
