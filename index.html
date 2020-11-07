@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,3 +19,66 @@
 </html>
 
 <!-- DELETE INDEX.HTML OUT BEFORE MERGING. DO NOT WANT TO OVERWRITE THE ACTUAL INDEX.HTML -->
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link to jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link to google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Realm Roller</title>
+</head>
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h4>Name Generator</h4>
+                <hr />
+                <div class="input-field">
+                <p class="no_padding no_margin">Choose a race:</p>
+                <select name="raceInput" id="raceInput">
+                    <option value="random">Random</option>
+                    <option value="elf">Elf</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="pirate">Human</option>
+                </select>
+                </div>
+                <button class="btn" id="npcGenButton">npcButton</button>
+                <br />
+                <div id="npcContainer" class="hidden">
+                    <div>Name: <span id="npcName"></span></div>
+                    <div>Race: <span id="npcRace"></span></div>
+                    <div>Age: <span id="npcAge"></span></div>
+                    <div>Height: <span id="npcHeight"></span> Weight: <span id="npcWeight"></span></div>
+                    <div>Wealth: <span id="npcWealth"></span></div>
+                    <div id="npcDescription"></div>
+                </div>
+            </div>
+            <div class="column is-half">
+                <h4>Map</h4>
+                <div id="large-image"></div>
+                <!-- area for the image to be placed
+                paste function for a link -->
+            </div>
+            <div class="column">
+                <h4>Notes</h4>
+                <!-- Notes field -->
+                <div id="textarea"></div>
+                <br/>
+                <h4 id="show-numbner">d20 Roller</h4>
+                <button id="d20-button">Roll a d20!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-image hero is-success is-fullheight"></div>
+    
+    <script src="javascript/script.js"></script>
+    <script src="javascript/npc_generator.js"></script>
+</body>
+</html>
+>>>>>>> cb9574c3149b815d15797e57654c13ff100770a4
