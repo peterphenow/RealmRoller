@@ -18,7 +18,8 @@ body {
   justify-content: center;
 }
 
-#npcDescription {
+#npcDescription,
+#npcContainer {
   color: black;
 }
 
@@ -60,4 +61,8 @@ p {
   height: 100%;
   object-fit: scale-down;
   overflow: hidden;
+}
+
+hr {
+  color: black;
 }
