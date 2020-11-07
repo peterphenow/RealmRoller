@@ -3,3 +3,7 @@ document.getElementById('maps').addEventListener('click', function(){
     $("#link").val("");
     
   });
+
+  document.getElementById('maps-rm').addEventListener('click', function(){
+    document.getElementById('large-image').innerHTML = "";
+  })
