@@ -8,16 +8,14 @@
     <!-- link to google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
     <link rel="stylesheet" href="css/styles.css">
     <title>Realm Roller</title>
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col s3">
+        <div class="columns">
+            <div class="column">
                 <h4>Name Generator</h4>
                 <hr />
                 <div class="input-field">
@@ -40,13 +38,13 @@
                     <div id="npcDescription"></div>
                 </div>
             </div>
-            <div class="col s6">
+            <div class="column is-half">
                 <h4>Map</h4>
                 <div id="large-image"></div>
                 <!-- area for the image to be placed
                 paste function for a link -->
             </div>
-            <div class="col s3">
+            <div class="column">
                 <h4>Notes</h4>
                 <!-- Notes field -->
                 <div id="textarea"></div>
@@ -57,7 +55,8 @@
         </div>
     </div>
 
-
+    <div class="bg-image hero is-success is-fullheight"></div>
+    
     <script src="javascript/script.js"></script>
     <script src="javascript/npc_generator.js"></script>
 </body>
