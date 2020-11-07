@@ -13,6 +13,18 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.button {
+  background-color: aliceblue;
+}
+
+.button:hover {
+  background-color: rgb(222, 234, 245);
+}
+
+.fancy-text {
+  text-decoration: underline;
+}
+
 .center {
   text-align: center;
   justify-content: center;
@@ -32,7 +44,7 @@ body {
 }
 
 .columns {
-  background-color: rgb(230, 235, 240);
+  background-color: rgb(216, 223, 230);
 }
 
 h4 {
