@@ -19,12 +19,12 @@
   <body>
     <div class="bg-image hero is-success is-fullheight">
         <div class="hero-body">
-            <section style="display:fixed"class="container">
+            <section style="display:fixed" class="container">
                 <div class="columns">
                     <div class="column">
                     <h4>Name Generator</h4>
                     <hr />
-                    <div class="select is-rounded input-field">
+                    <div class="select is-rounded input-field center">
                         <select name="raceInput" id="raceInput">
                           <option value="random">Random</option>
                           <option value="elf">Elf</option>
@@ -39,16 +39,21 @@
                     </div>
                     <br />
                     <div id="npcContainer" class="hidden">
-                        <div>Name: <span id="npcName"></span></div>
-                        <div>Race: <span id="npcRace"></span></div>
-                        <div>Age: <span id="npcAge"></span></div>
-                        <div>Height: <span id="npcHeight"></span> Weight: <span id="npcWeight"></span></div>
-                        <div>Wealth: <span id="npcWealth"></span></div>
+                        <div class="fancy-text">Name: <span id="npcName"></span></div>
+                        <div class="fancy-text">Race: <span id="npcRace"></span></div>
+                        <div class="fancy-text">Age: <span id="npcAge"></span></div>
+                        <div class="fancy-text">Height: <span id="npcHeight"></span> Weight: <span id="npcWeight"></span></div>
+                        <div class="fancy-text">Wealth: <span id="npcWealth"></span></div>
                         <div id="npcDescription"></div>
+                    </div>
+                    <div>
+                      <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
+                      <input type="text" id="spell-input">
+                      <div id="spell-container"></div>
                     </div>
                     </div>
 
-                    <div class="column is-half">
+                    <div class="column center is-half">
                       <h4>Map</h4>
                       <hr />
                       <div id="large-image"></div>
@@ -57,7 +62,7 @@
                         <a class="button button-rm" value="remove image" id="maps-rm"> Remove Image</a>
                       </form>
                   </div>
-                    <div class="column">
+                    <div class="column center">
                     <h4>Notes</h4>
                     <hr />
                     <div id="textarea"></div>
@@ -91,5 +96,6 @@
     <script src="javascript/npc_generator.js"></script>
     <script src="javascript/imgfunction.js"></script>
     <script src="javascript/d20-roller.js"></script>
+    <script src="javascript/spells.js"></script>
   </body>
 </html>
