@@ -16,9 +16,11 @@ body {
 .navbar-item {
   padding: 10px;
   margin: 5px;
-  color: aliceblue;
-  background-color: rgb(255, 106, 175);
 }
+
+/* .navbar-end {
+  background-color: rgb(216, 223, 230);
+} */
 
 #light {
   color: rgb(153, 160, 167);
@@ -57,6 +59,10 @@ h4 {
   color: rgb(49, 49, 49);
   font-weight: bold;
   text-align: center;
+}
+
+h5 {
+  color: rgb(49, 49, 49);
 }
 
 .center {
