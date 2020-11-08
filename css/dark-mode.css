@@ -1,11 +1,11 @@
 html {
   position: relative;
   min-height: 100%;
-  color: black;
+  color: rgb(153, 160, 167);
 }
 
 body {
-  color: black;
+  color: rgb(153, 160, 167);
   height: 100%;
   max-width: 100%;
   margin: auto;
@@ -41,11 +41,12 @@ body {
 }
 
 .button {
-  background-color: aliceblue;
+  background-color: rgb(112, 112, 112);
+  margin-top: 5px;
 }
 
 .button:hover {
-  background-color: rgb(222, 234, 245);
+  background-color: rgb(85, 85, 85);
 }
 
 .fancy-text {
@@ -56,13 +57,13 @@ body {
 
 h4 {
   text-decoration: underline;
-  color: rgb(49, 49, 49);
+  color: rgb(222, 234, 245);
   font-weight: bold;
   text-align: center;
 }
 
 h5 {
-  color: rgb(49, 49, 49);
+  color: rgb(222, 234, 245);
 }
 
 .center {
@@ -74,7 +75,7 @@ h5 {
 #npcContainer,
 #spell-container {
   font-size: smaller;
-  color: black;
+  color: rgb(222, 234, 245);
 }
 
 .bg-image {
@@ -86,11 +87,11 @@ h5 {
 }
 
 .columns {
-  background-color: rgb(216, 223, 230);
+  background-color: rgb(49, 49, 49);
 }
 
 p {
-  color: black;
+  color: rgb(222, 234, 245);
   font-size: smaller;
 }
 
