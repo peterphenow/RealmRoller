@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/light-mode.css" />
     <title>Realm Roller</title>
   </head>
   <body>
@@ -23,6 +23,7 @@
                 <div class="columns">
                     <div class="column">
                     <h4>Name Generator</h4>
+                    <p class="center">Select a race to generate a random name.</p>
                     <hr />
                     <div class="select is-rounded input-field center">
                         <select name="raceInput" id="raceInput">
@@ -39,22 +40,34 @@
                     </div>
                     <br />
                     <div id="npcContainer" class="hidden">
-                        <div class="fancy-text">Name: <span id="npcName"></span></div>
-                        <div class="fancy-text">Race: <span id="npcRace"></span></div>
-                        <div class="fancy-text">Age: <span id="npcAge"></span></div>
-                        <div class="fancy-text">Height: <span id="npcHeight"></span> Weight: <span id="npcWeight"></span></div>
-                        <div class="fancy-text">Wealth: <span id="npcWealth"></span></div>
+                        <div class="fancy-text">Name:</div> <span id="npcName"></span>
+                        <div class="fancy-text">Race: </div> <span id="npcRace"></span>
+                        <div class="fancy-text">Age: </div> <span id="npcAge"></span>
+                        <div class="fancy-text">Height: </div> <span id="npcHeight"></span>
+                        <div class="fancy-text">Weight: </div> <span id="npcWeight"></span>
+                        <div class="fancy-text">Wealth: </div> <span id="npcWealth"></span>
                         <div id="npcDescription"></div>
                     </div>
+                    <br />
                     <div>
+                      <h4>Spell Search</h4>
+                      <p class="center">Use the input box to search for a spell (5e).</p>
+                      <hr/>
+                      <input type="text" id="spell-input" placeholder="Insert spell name here">
                       <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
-                      <input type="text" id="spell-input">
-                      <div id="spell-container"></div>
+                      <div id="spell-container" hidden>
+                        <div class="fancy-text">Name:</div> <span id="spell-name"></span>
+                        <div class="fancy-text">Race: </div> <span id="spell-time"></span>
+                        <div class="fancy-text">Age: </div> <span id="spell-range"></span>
+                        <div class="fancy-text">Height: </div> <span id="spell-duration"></span>
+                        <div class="fancy-text">Weight: </div> <span id="spell-desc"></span>
+                      </div>
                     </div>
                     </div>
 
                     <div class="column center is-half">
                       <h4>Map</h4>
+                      <p class="center">Copy and paste an image URL to insert a map or important narrative images on the page.</p>
                       <hr />
                       <div id="large-image"></div>
                       <input type="url" name="link" id="link"  placeholder="Insert image URL here" /><br>
@@ -64,12 +77,14 @@
                   </div>
                     <div class="column center">
                     <h4>Notes</h4>
+                    <p class="center">Use this section to take notes on each player session.</p>
                     <hr />
                     <div id="textarea"></div>
                     <br />
-                    <h4>d20 Roller</h4>
+                    <h4>Dice Roller</h4>
+                    <p class="center">Use the drop-down selection to pick which die to roll.</p>
                     <hr />
-                    <p>Choose your dice:</p>
+                    <p>Choose your die:</p>
                     <div class="select is-rounded input-field">
                       <select name="diceInput" id="diceInput">
                       <option value="d4">d4</option>
@@ -83,6 +98,7 @@
                   </div>
                   <div>
                     <button class="button center" id="dice-button">Roll!</button>
+                    <br />
                     <h4>Result: <span id="show-number"></span></h4>
                   </div>
                 </div>
