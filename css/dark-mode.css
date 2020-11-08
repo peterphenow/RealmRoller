@@ -13,6 +13,33 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.navbar-item {
+  padding: 10px;
+  margin: 5px;
+}
+
+/* .navbar-end {
+  background-color: rgb(216, 223, 230);
+} */
+
+#light {
+  color: rgb(153, 160, 167);
+  background-color: aliceblue;
+}
+
+#light:hover {
+  color: rgb(222, 234, 245);
+}
+
+#dark {
+  background-color: rgb(49, 49, 49);
+  color: aliceblue;
+}
+
+#dark:hover {
+  color: rgb(85, 85, 85);
+}
+
 .button {
   background-color: aliceblue;
 }
@@ -23,6 +50,19 @@ body {
 
 .fancy-text {
   text-decoration: underline;
+  font-size: small;
+  font-weight: bold;
+}
+
+h4 {
+  text-decoration: underline;
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  text-align: center;
+}
+
+h5 {
+  color: rgb(49, 49, 49);
 }
 
 .center {
@@ -31,12 +71,14 @@ body {
 }
 
 #npcDescription,
-#npcContainer {
+#npcContainer,
+#spell-container {
+  font-size: smaller;
   color: black;
 }
 
 .bg-image {
-  background-image: url("https://i.imgur.com/7ZERR6s.jpg");
+  background-image: url("https://i.imgur.com/UXAAhcn.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -47,13 +89,9 @@ body {
   background-color: rgb(216, 223, 230);
 }
 
-h4 {
-  color: black;
-  text-align: center;
-}
-
 p {
   color: black;
+  font-size: smaller;
 }
 
 .no_padding {
