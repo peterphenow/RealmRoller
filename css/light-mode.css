@@ -13,6 +13,31 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.navbar-item {
+  padding: 10px;
+  margin: 5px;
+  color: aliceblue;
+  background-color: rgb(255, 106, 175);
+}
+
+#light {
+  color: rgb(153, 160, 167);
+  background-color: aliceblue;
+}
+
+#light:hover {
+  color: rgb(222, 234, 245);
+}
+
+#dark {
+  background-color: rgb(49, 49, 49);
+  color: aliceblue;
+}
+
+#dark:hover {
+  color: rgb(85, 85, 85);
+}
+
 .button {
   background-color: aliceblue;
 }
