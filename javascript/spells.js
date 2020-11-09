@@ -48,6 +48,9 @@ function getspell(spellName) {
       infoDiv.append(pDuration);
       infoDiv.append(pDesc);
 
+      //clear and previous searches
+      spellContainer.empty();
+
       //append info to spell container
       spellContainer.append(infoDiv);
     });
