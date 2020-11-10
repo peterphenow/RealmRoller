@@ -24,34 +24,25 @@ function getspell(spellName) {
     .done(function (response) {
       console.log(response);
 
+      $("#spell-container").removeAttr("hidden");
+
       //set variables to display
-      let name = "Name: " + response.name;
-      let time = "Casting Time: " + response.casting_time;
-      let range = "Range: " + response.range;
-      let duration = "Duration: " + response.duration;
-      let desc = "Description: " + response.desc;
+      let name = response.name;
+      let time = response.casting_time;
+      let range = response.range;
+      let duration = response.duration;
+      let description = response.desc;
 
-      console.log(name, time, range, duration, desc);
+      let spellName = $("#spell-name");
+      let spellTime = $("#spell-time");
+      let spellRange = $("#spell-range");
+      let spellDuration = $("#spell-duration");
+      let spellDescription = $("#spell-desc");
 
-      //create paragraph element to enter spell info to
-      let infoDiv = $("<div>");
-      let pName = $("<p>").text(name);
-      let pTime = $("<p>").text(time);
-      let pRange = $("<p>").text(range);
-      let pDuration = $("<p>").text(duration);
-      let pDesc = $("<p>").text(desc);
-
-      //append all spell info
-      infoDiv.append(pName);
-      infoDiv.append(pTime);
-      infoDiv.append(pRange);
-      infoDiv.append(pDuration);
-      infoDiv.append(pDesc);
-
-      //clear and previous searches
-      spellContainer.empty();
-
-      //append info to spell container
-      spellContainer.append(infoDiv);
+      spellName.text(name);
+      spellTime.text(time);
+      spellRange.text(range);
+      spellDuration.text(duration);
+      spellDescription.text(description);
     });
 }
