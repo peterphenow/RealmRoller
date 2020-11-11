@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
-  <link rel="stylesheet" href="css/light-mode.css" />
+  <link rel="stylesheet" href="css/dark-mode.css" />
   <title>Realm Roller</title>
 </head>
 
@@ -77,7 +77,7 @@
               <h4>Spell Search</h4>
               <p class="center">Use the input box to search for a spell (5e).</p>
               <hr />
-              <input class="mb-2" type="text" id="spell-input" placeholder="Insert spell name here">
+              <input class="mb-2 input" type="text" id="spell-input" placeholder="Insert spell name here">
               <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
               <br />
               <div id="spell-container" hidden>
@@ -95,7 +95,7 @@
             <p class="center">Copy and paste an image URL to insert a map or important narrative images on the page.</p>
             <hr />
             <div id="large-image"></div>
-            <input class="mb-2" type="url" name="link" id="link" placeholder="Insert image URL here" /><br>
+            <input class="mb-2 input" type="url" name="link" id="link" placeholder="Insert image URL here" /><br>
             <a class="button" value="Show Image" id="maps"> Add Image </a>
             <a class="button button-rm" value="remove image" id="maps-rm"> Remove Image</a>
             </form>
