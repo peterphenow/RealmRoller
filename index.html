@@ -8,19 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
-  <link rel="stylesheet" href="css/light-mode.css" />
+  <link id ="pagestyle" rel="stylesheet" href="css/light-mode.css"/>
   <title>Realm Roller</title>
 </head>
 
 <body>
-
+  <div class="dark">
   <div class="bg-image hero is-success is-fullheight">
     <nav class="navbar">
       <div class="container-fluid navbar-menu">
         <!-- class="is-active" to make mobile responsive, but goes green? -->
         <div class="navbar-end">
-          <a href="#" class="navbar-item" id="light" onclick="">Click for light-mode</a>
-          <a href="#" class="navbar-item" id="dark" onclick="">Click for dark-mode</a>
+          <a href="#" class="navbar-item" id="light" onclick="letsGo();">Click for light-mode</a>
+          <a href="#" class="navbar-item" id="dark" onclick="letsGo2();">Click for dark-mode</a>
         </div>
       </div>
     </nav>
@@ -139,6 +139,7 @@
   <script src="javascript/d20-roller.js"></script>
   <script src="javascript/spells.js"></script>
   <script src="javascript/light-dark-switch.js"></script>
+</div>
 </body>
 
 </html>
