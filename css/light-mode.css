@@ -19,8 +19,8 @@ body {
 }
 
 /* .navbar-end {
-  background-color: rgb(216, 223, 230);
-} */
+    background-color: rgb(216, 223, 230);
+  } */
 
 #light {
   color: rgb(153, 160, 167);
@@ -104,6 +104,7 @@ p {
 
 .hidden {
   visibility: hidden;
+  display: none;
 }
 
 .imgclass {

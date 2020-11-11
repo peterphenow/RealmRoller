@@ -3,12 +3,25 @@
 also [shop,bakery,brewery]
 parameters [limit, start] */
 
+//Create selectors for html elements
+let generateButton = $("#npcGenButton");
+let raceInput = $("#raceInput");
+let saveButton = $("#saveNPC");
+let loadButton = $("#loadNPC");
+let newNPCTab = $("#newNPCTab");
+let loadNPCTab = $("#loadNPCTab");
+let npcGenContainer = $("#npcGeneratorContainer");
+let npcLoadContainer = $("#npcLoadContainer");
+let loadInput = $("#loadInput");
+
 //available races to generate names from
 let raceOptions = ["elf", "pirate", "dwarf"];
-
-//Create selectors for html elements
-let button = $("#npcGenButton");
-let raceInput = $("#raceInput");
+let savedNPCList = JSON.parse(localStorage.getItem("savedNPC"));
+if(savedNPCList===null){
+    savedNPCList = [];
+    loadNPCTab.prop("disabled",true);
+}
+let randomNPC = {};
 
 //get array of lists from local storage or create empty array
 let listOfListofNames = JSON.parse(localStorage.getItem("listOfListOfNames"));
@@ -16,7 +29,21 @@ if (listOfListofNames === null) {
     listOfListofNames = [];
 }
 
-button.on("click", function () {
+newNPCTab.on("click",function(){
+    newNPCTab.addClass("has-background-grey-light");
+    loadNPCTab.removeClass("has-background-grey-light");
+    npcGenContainer.removeClass("hidden");
+    npcLoadContainer.addClass("hidden");
+})
+
+loadNPCTab.on("click",function(){
+    loadNPCTab.addClass("has-background-grey-light");
+    newNPCTab.removeClass("has-background-grey-light");
+    npcGenContainer.addClass("hidden");
+    npcLoadContainer.removeClass("hidden");
+})
+
+generateButton.on("click", function () {
     //set user input
     let userInput = {
         "race": raceInput.val()
@@ -44,7 +71,26 @@ button.on("click", function () {
             localStorage.setItem("listOfListOfNames", JSON.stringify(listOfListofNames));
         }
     }
+    $("#saveNPC").prop("disabled",false);
 })
+
+saveButton.on("click",function(){
+    if(randomNPC!={}){
+        savedNPCList.push(randomNPC);
+        localStorage.setItem("savedNPC",JSON.stringify(savedNPCList));
+        saveButton.prop("disabled",true);
+        loadNPCTab.prop("disabled",false);
+        updateLoadCharater();
+    }
+})
+
+loadButton.on("click",function(){
+    let index = parseInt(loadInput.val());
+    updateCharacterDisplay(savedNPCList[index]);
+})
+
+
+updateLoadCharater();
 
 function getName(race) {
     let api_key = "2ff8BbYOdnIM3EMt6RgYkAeF"
@@ -81,14 +127,7 @@ function createNPC(fullName, race) {
         npcCharacter = createHuman(npcCharacter);
     };
     npcCharacter = addDescription(npcCharacter);
-    $("#npcContainer").removeClass("hidden");
-    $("#npcName").text(npcCharacter.firstName + " " + npcCharacter.lastName);
-    $("#npcRace").text(npcCharacter.race);
-    $("#npcAge").text(npcCharacter.age.year);
-    $("#npcHeight").text(npcCharacter.height);
-    $("#npcWeight").text(npcCharacter.weight);
-    $("#npcWealth").text(npcCharacter.wealth);
-    $("#npcDescription").text(npcCharacter.description);
+    updateCharacterDisplay(npcCharacter);
 
     function createElf(npcCharacter) {
         let elfMaxAge = 750;
@@ -147,7 +186,7 @@ function createNPC(fullName, race) {
     }
 
     function createHuman(npcCharacter) {
-        let humanMaxAge = 350;
+        let humanMaxAge = 90;
         let age = Math.floor(Math.random() * humanMaxAge);
         let minHeight = 60;
         let maxHeight = 80;
@@ -173,6 +212,19 @@ function createNPC(fullName, race) {
         npcCharacter.weightScore = weightScore
         return npcCharacter
     }
+
+    randomNPC = npcCharacter;
+}
+
+function updateCharacterDisplay(npcCharacter){
+    $("#npcContainer").removeClass("hidden");
+    $("#npcName").text(npcCharacter.firstName + " " + npcCharacter.lastName);
+    $("#npcRace").text(npcCharacter.race);
+    $("#npcAge").text(npcCharacter.age.year);
+    $("#npcHeight").text(Math.floor(npcCharacter.height/12)+"'"+(npcCharacter.height%12)+"\"");
+    $("#npcWeight").text(npcCharacter.weight);
+    $("#npcWealth").text(npcCharacter.wealth);
+    $("#npcDescription").text(npcCharacter.description);
 }
 
 function getWealth() {
@@ -212,7 +264,7 @@ function addDescription(npcCharacter) {
         "wealthy":["fine silky clothing with a few shiny bobbles afixed in places","a noticably bright white shirt with a touch of green trim"],
         "ultraRich":["the finest fabrics, adjorned in jewels","a austentacious showing of wealth","like a peacock"]
     }
-    let feature = ["a sharp chin", "a scar across one eye", "a button nose", "piercing blue eyes", "dark brown eyes", "flashing emerald eyes", "scars on both cheeks", "tattoos covering their arms","a pencil this mustache","a huge bushy beard","a think braid drapped over their shoulder","a massive mess of hair on top of their head"];
+    let feature = ["a sharp chin", "a scar across one eye", "a button nose", "piercing blue eyes", "dark brown eyes", "flashing emerald eyes", "scars on both cheeks", "tattoos covering their arms","a pencil thin mustache","a huge bushy beard","a think braid drapped over their shoulder","a massive mess of hair on top of their head"];
 
     let addHeightDescriptor = function () {
         if (npcCharacter.heightScore < 25) {
@@ -255,7 +307,7 @@ function addDescription(npcCharacter) {
         } else if (npcCharacter.weightScore < 75) {
             let selectedFeature = feature[Math.floor(Math.random() * feature.length)];
             feature = feature.filter(x => x != selectedFeature);
-            let weightText = "accentuated by "+selectedFeature+".";
+            let weightText = "accentuated by "+selectedFeature;
             return weightText;
         } else {
             let weightText = weightDescriptor.heavy[Math.floor(Math.random() * weightDescriptor.heavy.length)];
@@ -274,4 +326,14 @@ function addDescription(npcCharacter) {
     description += " They are "+addWeightDescriptor()+" with "+addFeature()+".";
     npcCharacter.description = description;
     return npcCharacter;
+}
+
+function updateLoadCharater(){
+    loadInput.empty();
+    for(let x = 0; x < savedNPCList.length; x++){
+        let optionEl = $("<option>");
+        optionEl.text(savedNPCList[x].firstName+" "+savedNPCList[x].lastName);
+        optionEl.val(x);
+        loadInput.append(optionEl);
+    }
 }

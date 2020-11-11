@@ -18,7 +18,7 @@ body {
   margin: 5px;
 }
 
-/* .navbar-end {
+/* #background-color {
   background-color: rgb(216, 223, 230);
 } */
 
@@ -43,6 +43,7 @@ body {
 .button {
   background-color: rgb(112, 112, 112);
   margin-top: 5px;
+  color: aliceblue;
 }
 
 .button:hover {
@@ -105,6 +106,7 @@ p {
 
 .hidden {
   visibility: hidden;
+  display: none;
 }
 
 .imgclass {

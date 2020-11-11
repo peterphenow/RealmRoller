@@ -42,7 +42,7 @@ API's:
 * D&D 5e Spell API: https://www.dnd5eapi.co/api/spells/  
 
 Background images:
-
+- map image from [@marjanblan](https://unsplash.com/photos/6bXvYyAYVrE)
 - light mode image from Elena Joland [@labf](https://unsplash.com/photos/mjeQon0Mh_Q)
 - dark mode image from Brennan Burling[@bwobble11](https://unsplash.com/photos/ay53qag90W8)
 

@@ -1,13 +1,13 @@
-// let themeSwitcher = document.querySelector("#theme-switcher");
-// let container = document.querySelector(".container");
-// let mode = "dark";
+function swapStyle(sheet) {
+  document.getElementById("pagestyle").setAttribute("href", sheet);
+}
 
-// themeSwitcher.addEventListener("click", function () {
-//   if (mode === "dark") {
-//     mode = "light";
-//     container.setAttribute("class", "light");
-//   } else {
-//     mode = "dark";
-//     container.setAttribute("class", "dark");
-//   }
-// });
+function letsGo() {
+  let light = document.getElementById("stylesheet1");
+  light.onclick = swapStyle("css/light-mode.css");
+}
+
+function letsGo2() {
+  let dark = document.getElementById("stylesheet2");
+  dark.onclick = swapStyle("css/dark-mode.css");
+}
