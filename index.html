@@ -14,8 +14,9 @@
 </head>
 
 <body>
+
   <div class="dark">
-  <div class="bg-image hero is-success is-fullheight">
+  <div class="bg-image hero is-success is-fullheight" id="background-color">
     <nav class="navbar">
       <div class="container-fluid navbar-menu">
         <!-- class="is-active" to make mobile responsive, but goes green? -->
@@ -32,12 +33,12 @@
       <section style="display:fixed" class="container">
         <div class="columns">
           <div class="column">
-            <div id="npcGeneratorContainer">
-              <h4>Name Generator</h4>
-              <p class="center">Select a race to generate a random name.</p>
+              <h4>NPC Generator</h4>
+              <p class="center">Generate or load a NPC.</p>
               <hr />
               <button class="button center has-background-grey-light" id="newNPCTab">New NPC</button>
               <button class="button center mb-2" id="loadNPCTab">Load NPC</button>
+              <div id="npcGeneratorContainer">
               <div class="select is-rounded input-field center">
                 <select name="raceInput" id="raceInput">
                   <option value="random">Random</option>
@@ -52,9 +53,6 @@
               </div>
             </div>
             <div id="npcLoadContainer" class="pt-3 hidden">
-              <h4>Load Character</h4>
-              <p class="center">Select a NPC to load.</p>
-              <hr />
               <div class="select is-rounded input-field center">
                 <select name="loadInput" id="loadInput">
                 </select>
@@ -97,7 +95,9 @@
             <h4>Map</h4>
             <p class="center">Copy and paste an image URL to insert a map or important narrative images on the page.</p>
             <hr />
-            <div id="large-image"></div>
+            <div id="large-image">
+              <img src="https://i.imgur.com/B4i66cu.jpg">
+            </div>
             <input class="mb-2 input" type="url" name="link" id="link" placeholder="Insert image URL here" /><br>
             <a class="button" value="Show Image" id="maps"> Add Image </a>
             <a class="button button-rm" value="remove image" id="maps-rm"> Remove Image</a>
@@ -134,6 +134,7 @@
       </section>
     </div>
   </div>
+</div>
 
   <!-- link to jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
