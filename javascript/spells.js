@@ -1,16 +1,17 @@
 //"https://www.dnd5eapi.co/api/spells/" + spellName
 
-let spellBtn = $("#spell-btn"); //need to create a spell gen button with this ID
-let spellName = $("#spell-input").val(); //need to create an input in html with this ID
+let spellBtn = $("#spell-btn");
+let spellName = $("#spell-input").val();
 let spellContainer = $("#spell-container");
 
 spellBtn.on("click", function () {
-  console.log("spell button clicked");
   getspell(spellName);
 });
 
 function getspell(spellName) {
-  spellName = $("#spell-input").val(); //need to create an input in html with this ID
+  //sets the spell name to all lowercase and adds a dash for any space so the URL can successfully work
+  spellName = $("#spell-input").val().replace(/\s+/g, "-").toLowerCase();
+  //create the URL to use for the API call
   let queryURL = "https://www.dnd5eapi.co/api/spells/" + spellName;
   $.ajax({
     url: queryURL,
@@ -18,13 +19,11 @@ function getspell(spellName) {
   })
     .fail(function (response) {
       console.log(
-        "API call to spell generator errored - error code " +
-          response.responseJSON.error.code
+        "API call to spell generator errored - error code " + response.responseJSON.error.code
       );
     })
     .done(function (response) {
-      console.log(response);
-
+      //make the spell container div visible
       $("#spell-container").removeAttr("hidden");
 
       //set variables to display
@@ -34,12 +33,14 @@ function getspell(spellName) {
       let duration = response.duration;
       let description = response.desc;
 
+      //set variables for element IDs
       let spellName = $("#spell-name");
       let spellTime = $("#spell-time");
       let spellRange = $("#spell-range");
       let spellDuration = $("#spell-duration");
       let spellDescription = $("#spell-desc");
 
+      //place info from API to elements on HTML
       spellName.text(name);
       spellTime.text(time);
       spellRange.text(range);
