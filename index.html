@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet" />
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" />
-  <link rel="stylesheet" href="css/light-mode.css" />
+  <link rel="stylesheet" href="css/dark-mode.css" />
   <title>Realm Roller</title>
 </head>
 
@@ -31,12 +31,12 @@
       <section style="display:fixed" class="container">
         <div class="columns">
           <div class="column">
-            <button class="button center has-background-grey-light" id="newNPCTab">New NPC</button>
-            <button class="button center" id="loadNPCTab">Load NPC</button>
-            <div id="npcGeneratorContainer" class="pt-3">
+            <div id="npcGeneratorContainer">
               <h4>Name Generator</h4>
               <p class="center">Select a race to generate a random name.</p>
               <hr />
+              <button class="button center has-background-grey-light" id="newNPCTab">New NPC</button>
+              <button class="button center mb-2" id="loadNPCTab">Load NPC</button>
               <div class="select is-rounded input-field center">
                 <select name="raceInput" id="raceInput">
                   <option value="random">Random</option>
@@ -77,8 +77,11 @@
               <h4>Spell Search</h4>
               <p class="center">Use the input box to search for a spell (5e).</p>
               <hr />
-              <input type="text" id="spell-input" placeholder="Insert spell name here">
-              <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
+              <form>
+                <input class="mb-2 input" type="text" id="spell-input" placeholder="Insert spell name here">
+                <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
+              </form>
+              <br />
               <div id="spell-container" hidden>
                 <div class="fancy-text">Name:</div> <span id="spell-name"></span>
                 <div class="fancy-text">Casting Time: </div> <span id="spell-time"></span>
@@ -94,14 +97,14 @@
             <p class="center">Copy and paste an image URL to insert a map or important narrative images on the page.</p>
             <hr />
             <div id="large-image"></div>
-            <input type="url" name="link" id="link" placeholder="Insert image URL here" /><br>
+            <input class="mb-2 input" type="url" name="link" id="link" placeholder="Insert image URL here" /><br>
             <a class="button" value="Show Image" id="maps"> Add Image </a>
             <a class="button button-rm" value="remove image" id="maps-rm"> Remove Image</a>
             </form>
           </div>
           <div class="column center">
             <h4>Notes</h4>
-            <p class="center">Use this section to take notes on each player session.</p>
+            <p class="center">Use this section to take notes on each session.</p>
             <hr />
             <div id="textarea"></div>
             <br />
@@ -109,7 +112,7 @@
             <p class="center">Use the drop-down selection to pick which die to roll.</p>
             <hr />
             <p>Choose your die:</p>
-            <div class="select is-rounded input-field">
+            <div class="select is-rounded input-field mb-2">
               <select name="diceInput" id="diceInput">
                 <option value="d4">d4</option>
                 <option value="d6">d6</option>
