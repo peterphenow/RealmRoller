@@ -31,12 +31,12 @@
       <section style="display:fixed" class="container">
         <div class="columns">
           <div class="column">
-            <div id="npcGeneratorContainer">
-              <h4>Name Generator</h4>
-              <p class="center">Select a race to generate a random name.</p>
+              <h4>NPC Generator</h4>
+              <p class="center">Generate or load a NPC.</p>
               <hr />
               <button class="button center has-background-grey-light" id="newNPCTab">New NPC</button>
               <button class="button center mb-2" id="loadNPCTab">Load NPC</button>
+              <div id="npcGeneratorContainer">
               <div class="select is-rounded input-field center">
                 <select name="raceInput" id="raceInput">
                   <option value="random">Random</option>
@@ -51,9 +51,6 @@
               </div>
             </div>
             <div id="npcLoadContainer" class="pt-3 hidden">
-              <h4>Load Character</h4>
-              <p class="center">Select a NPC to load.</p>
-              <hr />
               <div class="select is-rounded input-field center">
                 <select name="loadInput" id="loadInput">
                 </select>
