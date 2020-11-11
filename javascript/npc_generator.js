@@ -19,6 +19,7 @@ let raceOptions = ["elf", "pirate", "dwarf"];
 let savedNPCList = JSON.parse(localStorage.getItem("savedNPC"));
 if(savedNPCList===null){
     savedNPCList = [];
+    loadNPCTab.prop("disabled",true);
 }
 let randomNPC = {};
 
@@ -78,6 +79,7 @@ saveButton.on("click",function(){
         savedNPCList.push(randomNPC);
         localStorage.setItem("savedNPC",JSON.stringify(savedNPCList));
         saveButton.prop("disabled",true);
+        loadNPCTab.prop("disabled",false);
         updateLoadCharater();
     }
 })
