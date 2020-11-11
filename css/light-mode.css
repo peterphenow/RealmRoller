@@ -104,6 +104,7 @@ p {
 
 .hidden {
   visibility: hidden;
+  display: none;
 }
 
 .imgclass {
