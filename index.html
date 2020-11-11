@@ -77,8 +77,10 @@
               <h4>Spell Search</h4>
               <p class="center">Use the input box to search for a spell (5e).</p>
               <hr />
-              <input class="mb-2 input" type="text" id="spell-input" placeholder="Insert spell name here">
-              <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
+              <form>
+                <input class="mb-2 input" type="text" id="spell-input" placeholder="Insert spell name here">
+                <button type="submit" class="button center" id="spell-btn" for="spell-input">Generate Spell Info</button>
+              </form>
               <br />
               <div id="spell-container" hidden>
                 <div class="fancy-text">Name:</div> <span id="spell-name"></span>
