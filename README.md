@@ -27,7 +27,17 @@ This repository is an application to help keep dungeon masters organized. It con
 
 Project can be viewed at: https://amypaschke.github.io/Project_01/  
 
-![Screenshot](assets/images/screenshot.png)
+Fullpage image
+
+![fullpage](https://user-images.githubusercontent.com/70075341/98886027-c96cba00-2458-11eb-91d6-9073383cf489.JPG)
+
+NPC generate section
+
+![npcgenerate](https://user-images.githubusercontent.com/70075341/98886028-c96cba00-2458-11eb-9309-67fa9b50a11f.JPG)
+
+Dice roller section
+
+![diceroller](https://user-images.githubusercontent.com/70075341/98886029-c96cba00-2458-11eb-86ba-70711f6bd08d.JPG)
 
 ## Credits
 
