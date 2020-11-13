@@ -4,7 +4,8 @@ let spellBtn = $("#spell-btn");
 let spellName = $("#spell-input").val();
 let spellContainer = $("#spell-container");
 
-spellBtn.on("click", function () {
+spellBtn.on("click", function (event) {
+  event.preventDefault();
   getspell(spellName);
 });
 
