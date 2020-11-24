@@ -8,8 +8,8 @@ This repository is an application to help keep dungeon masters organized. It con
 
 - Visit https://peterphenow.github.io/RealmRoller/
 
-- Clone the repository with Git Bash(Windows) or Terminal(Mac) in directory of your choosing.
-  SSH Clone:
+- Clone the repository with Git Bash(Windows) or Terminal(Mac) in directory of your choosing.  
+  SSH Clone:  
   $ git clone git@github.com:peterphenow/RealmRoller.git
 
 ## Usage
